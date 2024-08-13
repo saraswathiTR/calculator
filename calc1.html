@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #display{
+                background-color: rgb(99, 65, 152);
+                height: 50px;
+                width: 410px;
+                text-align: center;
+                color: white;
+                font-size: 20px;
+                margin: 14px;
+            }
+            
+            button{
+                border: 1px solid black;
+                border-radius: 4px;
+                width: 90px;
+                background-color: blue;
+                font-size: 30px;
+                height: 90px;
+                color: rgb(255, 255, 255);
+                margin: 10px;
+            }
+            #calculator{
+                border: 1px solid black;
+                width:fit-content;
+                background-color: blue;
+                margin: 100px;
+            }
+            body{
+                background-color: rgb(75, 75, 112);
+                padding-left: 500px;
+                padding-top: 10px;
+            }
+            h1{
+                color: white;
+                text-align: center;
+            }
+        </style>
+
+    </head>
+    <body>
+        
+        <div id="calculator">
+            <h1>calculator</h1>
+            <input type="text" id="display">
+            <div id="but">
+                <br>
+                <button onclick="calcfuc('%')">%</button>
+                <button onclick="calcfuc('/')">/</button>
+                <button onclick="calcfuc('*')">/</button>
+                <button onclick="cleardisplay()">ac</button><br>
+                <button onclick="calcfuc('7')">7</button>
+                <button onclick="calcfuc('8')">8</button>
+                <button onclick="calcfuc('9')">9</button>
+                <button onclick="calcfuc('+')">+</button><br>
+                <button onclick="calcfuc('4')">4</button>
+                <button onclick="calcfuc('5')">5</button>
+                <button onclick="calcfuc('6')">6</button>
+                <button onclick="calcfuc('-')">-</button><br>
+                <button onclick="calcfuc('1')">1</button>
+                <button onclick="calcfuc('2')">2</button>
+                <button onclick="calcfuc('3')">3</button>
+                <button onclick="calcfuc('*')">*</button><br>
+                <button onclick="calculate()">=</button>
+                <button onclick="appendToDisplay('0')">0</button>
+                <button onclick="backspace()">←</button>
+                <button onclick="appendToDisplay('.')">.</button>
+
+            </div>
+        </div>
+        <script>
+            function calcfuc(value){
+                document.getElementById('display').value +=value;
+            }
+            function calculate(){
+                let display=document.getElementById('display');
+                try{
+                    display.value=eval(display.value);
+                }catch{
+                    display.value='Error';
+                }
+            }
+            function cleardisplay() {
+    document.getElementById('display').value = '';
+}
+
+            function backspace() {
+    let display = document.getElementById('display');
+    display.value = display.value.slice(0, -1);
+}
+        </script>
+    </body>
+</html>
